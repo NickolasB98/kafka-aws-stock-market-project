@@ -160,7 +160,50 @@ cd kafka_2.12-3.8.0
 bin/kafka-console-consumer.sh --topic demo_testing --bootstrap-server <your-public-ip>:9092
 ```
 
-### Conclusion
 
-This guide helps you set up Apache Kafka on an EC2 instance, configure necessary components, and demonstrates how to create a producer and consumer to stream data. Ensure that you replace <your-public-ip> with the actual public IP of your EC2 instance. This setup can be used as a base for further Kafka exploration and real-time data processing projects.
+Ensure that you replace <your-public-ip> with the actual public IP of your EC2 instance. This setup can be used as a base for further Kafka exploration and real-time data processing projects.
 
+
+## Configure Kafka in Python Notebooks and Connect with AWS S3
+
+Now that we have manually configured our Kafka components, lets move on to creating this connection programmatically in Python notebooks, and forming the connection with AWS S3 using a secret Key ID and Value.
+
+**The notebook KafkaProducer.ipynb**
+
+<img width="840" alt="image" src="https://github.com/user-attachments/assets/4d53ede4-f3a5-46fc-96ee-c205acdabacb">
+
+<img width="839" alt="image" src="https://github.com/user-attachments/assets/39696a0a-494b-4ced-a773-ac9c5a5cb820">
+
+##The notebook KafkaConsumer.ipynb**
+
+<img width="783" alt="image" src="https://github.com/user-attachments/assets/985078a4-1f4d-4b35-81d6-111fb2200211">
+
+<img width="797" alt="image" src="https://github.com/user-attachments/assets/d69e491e-d700-4708-9cbb-2674dfcb4fb6">
+
+## Connection to AWS
+
+After running both notebooks for a while, we observe new data in our S3 Bucket, getting imported every second (or every n seconds depending on the sleep(n) function in **KafkaProducer.ipynb**
+
+**The S3 Bucket**
+
+<img width="1439" alt="s3bucket" src="https://github.com/user-attachments/assets/bede940a-9524-4e70-8c66-f51586144f9a">
+
+We create a Glue Crawler, which automatically crawls the schema of the newly created table based on the imported data.
+As a source for the Crawler, we use our S3 Bucket with a '/' in the end, to choose all the inserted object files inside the folder.
+
+<img width="1099" alt="crawler" src="https://github.com/user-attachments/assets/46f7fa7e-dc35-447b-a452-37fb499e6bfc">
+
+The table is now created with the correct schema formed by the crawler, and ready to be queried and analysed in AWS Serverless SQL Engine: Athena
+
+**AWS Athena**
+
+<img width="1266" alt="athena_query" src="https://github.com/user-attachments/assets/c033a1f1-11b6-430e-bdf6-61a10637c6e5">
+
+
+## Conclusion
+
+The Stock Market Data Engineering Project showcases the integration of Apache Kafka and AWS services to create a robust, real-time data pipeline. This project demonstrates how Kafka, combined with AWS Glue, Amazon S3, and Athena, can handle large-scale, simulated stock market data with high efficiency.
+
+By utilizing Kafka producers and consumers, data is ingested in real-time and stored securely in AWS, enabling scalable and low-latency data processing. The automated data discovery and cataloging through AWS Glue, followed by SQL-based analytics in Athena, allow users to gain valuable insights quickly.
+
+This architecture not only highlights the power of Kafka for real-time data streaming but also leverages the AWS ecosystem for comprehensive data management, making it ideal for real-world applications in finance, trading, and beyond.
