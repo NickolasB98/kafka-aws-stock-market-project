@@ -65,6 +65,7 @@ This guide provides step-by-step instructions for setting up Apache Kafka on an 
 ### Access the EC2 through the CLI:
 
 Create and download as csv one Key Pair during EC2 creation.
+
 <img width="377" alt="image" src="https://github.com/user-attachments/assets/aedcb372-820f-4179-abb3-688640f3f415">
 
 Import the csv into the project's folder.
