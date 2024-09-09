@@ -61,7 +61,22 @@ This guide provides step-by-step instructions for setting up Apache Kafka on an 
 2. SSH access to your EC2 instance.
 3. Basic knowledge of terminal commands.
 
-   
+
+### Access the EC2 through the CLI:
+
+Create and download as csv one Key Pair during EC2 creation.
+<img width="377" alt="image" src="https://github.com/user-attachments/assets/aedcb372-820f-4179-abb3-688640f3f415">
+
+Import the csv into the project's folder.
+
+Make the connection with the following code:
+
+```
+ssh -i /path/to/your-key.pem ec2-user@your-instance-public-dns
+
+```
+
+
 ### Setup Instructions
 
 1. Download and Extract Kafka
