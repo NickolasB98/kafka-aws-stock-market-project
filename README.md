@@ -12,23 +12,31 @@ This project demonstrates a real-time data pipeline for processing stock market 
 The architecture consists of the following components:
 
 **Stock Market App Simulation:** Simulates real-time stock market data using Python.
+
 **SDK Boto3:** Used for interacting with AWS services.
+
 **Dataset:** A CSV file serving as the data source for stock price simulations.
+
 **Kafka Producer:**
 Sends the simulated stock market data to Kafka topics.
 Hosted on an Amazon EC2 instance configured to manage Kafka brokers.
+
 **Kafka Broker:**
 Acts as a message broker that facilitates the transmission of data between producers and consumers.
 Ensures data is replicated and available for real-time consumption.
+
 **Kafka Consumer:**
 Consumes data from Kafka topics and processes it in real time.
 Stores processed data in Amazon S3 for long-term storage and analysis.
+
 **Amazon S3:**
 Stores the data consumed and processed by Kafka.
 Acts as a data lake for raw and processed data, enabling easy integration with other AWS services.
+
 **AWS Glue Crawler and Data Catalog:**
 Automatically discovers data in S3 and creates metadata tables in the AWS Glue Data Catalog.
 Makes the data queryable using Amazon Athena.
+
 **Amazon Athena:**
 Provides SQL-based querying capabilities on the data stored in S3.
 Used for running analytics and generating insights from the stock market data.
