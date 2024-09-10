@@ -15,6 +15,8 @@ The architecture consists of the following components:
 
 **SDK Boto3:** Used for interacting with AWS services.
 
+**EC2 Instance:** Hosts the Kafka broker, ensuring reliable and scalable message delivery between the stock market data producer and consumer.
+
 **Dataset:** A CSV file serving as the data source for stock price simulations.
 
 **Kafka Producer:**
