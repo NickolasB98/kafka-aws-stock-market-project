@@ -63,6 +63,13 @@ This guide provides step-by-step instructions for setting up Apache Kafka on an 
 2. SSH access to your EC2 instance.
 3. Basic knowledge of terminal commands.
 
+### Create the EC2 Instance in AWS
+
+**Type:** Choose an instance type that meets the performance and scalability requirements of the project. Personally, my project ran smoothly with t2.micro (also free tier eligible)
+
+**Operating System:** Recommended: Amazon Linux 2 AMI (HVM), SSD Volume Type (64-bit x86) 
+
+**Security Group**: Configure a security group to allow inbound traffic on the Kafka port (typically 9092) from your producer and consumer applications. It is recommended that other inbound traffic be restricted to minimize security risks, especially in a production environment.
 
 ### Access the EC2 through the CLI:
 
